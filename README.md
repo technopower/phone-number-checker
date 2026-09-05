@@ -1,21 +1,25 @@
-# Truecaller Web App Clone 📞
+# Phone Number Checker 📞
 
-একটি রেসপন্সিভ ট্রুকলার স্টাইল কলার আইডি এবং স্প্যাম ডিটেকশন ওয়েব অ্যাপ্লিকেশন।
+একটি চমৎকার ট্রুকলার স্টাইল কলার আইডি ও স্প্যাম ডিটেকশন ওয়েব অ্যাপ্লিকেশন।
 
-🌐 **লাইভ ডেমো দেখুন:** [Phone Number Checker Live](https://technopower.github.io/phone-number-checker/)
+🌐 **লাইভ ওয়েবসাইট লিংক:** [https://technopower.github.io/phone-number-checker/](https://technopower.github.io/phone-number-checker/)
 
 ## 🚀 ফিচারসমূহ
-- **নম্বর অনুসন্ধান (Caller ID Search):** ফোন নম্বর বা নাম দিয়ে ডাটাবেজ অনুসন্ধান।
-- **স্প্যাম অ্যালার্ট (Spam Detection):** ঝুঁকিপূর্ণ বা স্প্যাম কলারদের জন্য বিশেষ ব্যাজ।
-- **সার্চ ইতিহাস (Local Storage):** পূর্বের সার্চকৃত নম্বরসমূহ লোকাল স্টোরেজে সংরক্ষণ।
-- **বাংলা ইউআই (Bengali Support):** সম্পূর্ণ বাংলা ইন্টারফেস এবং ডার্ক মোড ডিজাইন।
+- **লোগো ও আইকন ব্র্যান্ডিং:** ভেক্টর এসভিজি লোগো এবং ডায়নামিক ফেভিকন।
+- **নম্বর ও নাম অনুসন্ধান (Caller ID Lookup):** ডাটাবেজ থেকে নম্বর ও নাম সার্চ সুবিধা।
+- **স্প্যাম ইন্ডিকেটর:** স্প্যাম রিস্ক ফিল্টারিং (Safe / High Risk / Suspicious)।
+- **লোকাল স্টোরেজ হিস্ট্রি:** পূর্বে করা সার্চগুলোর তালিকা সংরক্ষণ।
+- **বাংলা ইউআই:** ইউজার-ফ্রেন্ডলি বাংলা থিম ও রেসপন্সিভ লেআউট।
 
-## 🛠️ প্রযুক্তিসমূহ
-- **HTML5 & CSS3**
-- **Tailwind CSS** (via CDN)
-- **Vanilla JavaScript** (ES6+)
-- **FontAwesome Icons**
+## 🛠️ ব্যবহৃত প্রযুক্তিসমূহ
+- HTML5 & CSS3
+- Tailwind CSS
+- Vanilla JavaScript
+- FontAwesome Icons
 
-## 💻 ক্লোন ও রান করার উপায়
+## 💻 গিটহাবে পুশ করার নির্দেশিকা
+কোড আপডেট করতে টার্মিনালে রান করুন:
 ```bash
-git clone [https://github.com/technopower/phone-number-checker.git](https://github.com/technopower/phone-number-checker.git)
+git add .
+git commit -m "Update UI with SVG Logo, App Features and Favicon"
+git push origin main
