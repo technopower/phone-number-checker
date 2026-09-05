@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truecaller Web - Caller ID & Spam Lookup</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans flex flex-col justify-between">
+
+    <!-- Navbar -->
+    <header class="bg-slate-800/80 backdrop-blur border-b border-slate-700 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-600 text-white p-2.5 rounded-xl shadow-lg">
+                    <i class="fas fa-phone-volume text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-white leading-none">ট্রুকলার <span class="text-blue-400">ওয়েব</span></h1>
+                    <p class="text-[11px] text-slate-400">কলার আইডি ও স্প্যাম সনাক্তকরণ</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-3">
+                <button id="themeToggle" class="bg-slate-700 hover:bg-slate-600 text-slate-200 p-2 rounded-lg text-sm transition">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 w-full flex-1">
+        
+        <!-- Search Section -->
+        <div class="bg-slate-800 rounded-2xl p-6 shadow-xl border border-slate-700 mb-8">
+            <h2 class="text-xl font-bold mb-4 text-center text-slate-100">যে কোনো ফোন নম্বর বা নাম দিয়ে সন্ধান করুন</h2>
+            
+            <form id="searchForm" class="flex flex-col md:flex-row gap-2">
+                <div class="relative flex-1">
+                    <i class="fas fa-search absolute left-4 top-3.5 text-slate-400"></i>
+                    <input type="text" id="searchInput" placeholder="যেমন: +8801700000000 অথবা নাম..." 
+                           class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-blue-500 text-slate-100">
+                </div>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl text-sm transition">
+                    অনুসন্ধান করুন
+                </button>
+            </form>
+        </div>
+
+        <!-- Search Results View -->
+        <div id="resultContainer" class="hidden mb-8">
+            <!-- Dynamic Result Card JS injected here -->
+        </div>
+
+        <!-- Tabs Section (Recent & Top Spams) -->
+        <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 shadow-xl">
+            <div class="flex border-b border-slate-700 mb-4">
+                <button id="tabHistory" class="px-4 py-2 text-sm font-semibold text-blue-400 border-b-2 border-blue-500">
+                    <i class="fas fa-history mr-1.5"></i> সাম্প্রতিক অনুসন্ধানের তথ্য
+                </button>
+                <button id="tabSpam" class="px-4 py-2 text-sm font-semibold text-slate-400 hover:text-slate-200">
+                    <i class="fas fa-shield-virus mr-1.5"></i> শীর্ষ স্প্যাম নম্বরসমূহ
+                </button>
+            </div>
+
+            <!-- Tab Content: History -->
+            <div id="historyContent" class="space-y-3">
+                <!-- JS dynamically injects history -->
+            </div>
+
+            <!-- Tab Content: Spam List -->
+            <div id="spamContent" class="hidden space-y-3">
+                <!-- JS dynamically injects spam list -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-4 text-center text-xs text-slate-500">
+        <p>© 2026 Truecaller Clone Project • Open Source HTML Application</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
