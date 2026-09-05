@@ -2,11 +2,13 @@
 
 একটি রেসপন্সিভ ট্রুকলার স্টাইল কলার আইডি এবং স্প্যাম ডিটেকশন ওয়েব অ্যাপ্লিকেশন।
 
+🌐 **লাইভ ডেমো দেখুন:** [Phone Number Checker Live](https://technopower.github.io/phone-number-checker/)
+
 ## 🚀 ফিচারসমূহ
 - **নম্বর অনুসন্ধান (Caller ID Search):** ফোন নম্বর বা নাম দিয়ে ডাটাবেজ অনুসন্ধান।
 - **স্প্যাম অ্যালার্ট (Spam Detection):** ঝুঁকিপূর্ণ বা স্প্যাম কলারদের জন্য বিশেষ ব্যাজ।
 - **সার্চ ইতিহাস (Local Storage):** পূর্বের সার্চকৃত নম্বরসমূহ লোকাল স্টোরেজে সংরক্ষণ।
-- **বাংলা ইউআই (Bengali Support):** সম্পূর্ণ বাংলা ইন্টারফেস এবং আকর্ষণীয় ডার্ক মোড ডিজাইন।
+- **বাংলা ইউআই (Bengali Support):** সম্পূর্ণ বাংলা ইন্টারফেস এবং ডার্ক মোড ডিজাইন।
 
 ## 🛠️ প্রযুক্তিসমূহ
 - **HTML5 & CSS3**
@@ -14,7 +16,6 @@
 - **Vanilla JavaScript** (ES6+)
 - **FontAwesome Icons**
 
-## 💻 কীভাবে চালাবেন
-১. আপনার কম্পিউটারে ফাইলগুলো ডাউনলোড/ক্লোন করুন।
+## 💻 ক্লোন ও রান করার উপায়
 ```bash
-git clone [https://github.com/your-username/truecaller-clone.git](https://github.com/your-username/truecaller-clone.git)
+git clone [https://github.com/technopower/phone-number-checker.git](https://github.com/technopower/phone-number-checker.git)
