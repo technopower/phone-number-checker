@@ -1,4 +1,4 @@
-// Mock Database
+// Mock Phone Database
 const phoneDirectory = [
     {
         number: "+8801700000000",
@@ -22,17 +22,27 @@ const phoneDirectory = [
     },
     {
         number: "+8801900111222",
-        name: "ব্যাংক আপডেট ওটিপি",
+        name: "ব্যাংক আপডেট ওটিপি প্রতারণা",
         carrier: "Banglalink",
         location: "সিলেট, বাংলাদেশ",
         type: "সন্দেহজনক স্প্যাম",
         risk: "medium",
         reports: 28,
         verified: false
+    },
+    {
+        number: "+8801500333444",
+        name: "তানভির আহমেদ",
+        carrier: "Teletalk",
+        location: "রাজশাহী, বাংলাদেশ",
+        type: "নিরাপদ কলার",
+        risk: "safe",
+        reports: 0,
+        verified: true
     }
 ];
 
-// Elements
+// DOM Elements
 const searchForm = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
 const resultContainer = document.getElementById('resultContainer');
@@ -41,13 +51,13 @@ const spamContent = document.getElementById('spamContent');
 const tabHistory = document.getElementById('tabHistory');
 const tabSpam = document.getElementById('tabSpam');
 
-// Initial Load
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     renderSpamList();
     loadSearchHistory();
 });
 
-// Tab Switching
+// Tab Switch Logic
 tabHistory.addEventListener('click', () => {
     tabHistory.classList.add('text-blue-400', 'border-b-2', 'border-blue-500');
     tabHistory.classList.remove('text-slate-400');
@@ -68,7 +78,7 @@ tabSpam.addEventListener('click', () => {
     historyContent.classList.add('hidden');
 });
 
-// Search Submission
+// Search Form Handler
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const query = searchInput.value.trim();
@@ -87,11 +97,11 @@ searchForm.addEventListener('submit', (e) => {
 function displayResult(data) {
     let riskBadge = '';
     if(data.risk === 'safe') {
-        riskBadge = `<span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-2.5 py-1 rounded-full font-medium">নিরাপদ কলার</span>`;
+        riskBadge = `<span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-3 py-1 rounded-full font-medium"><i class="fas fa-shield-alt mr-1"></i>নিরাপদ কলার</span>`;
     } else if(data.risk === 'high') {
-        riskBadge = `<span class="bg-rose-500/10 text-rose-400 border border-rose-500/20 text-xs px-2.5 py-1 rounded-full font-medium"><i class="fas fa-exclamation-triangle mr-1"></i>স্প্যাম (${data.reports} রিপোর্ট)</span>`;
+        riskBadge = `<span class="bg-rose-500/10 text-rose-400 border border-rose-500/20 text-xs px-3 py-1 rounded-full font-medium"><i class="fas fa-exclamation-triangle mr-1"></i>হাই রিস্ক স্প্যাম (${data.reports} রিপোর্ট)</span>`;
     } else {
-        riskBadge = `<span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs px-2.5 py-1 rounded-full font-medium">সন্দেহজনক কলার</span>`;
+        riskBadge = `<span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs px-3 py-1 rounded-full font-medium"><i class="fas fa-info-circle mr-1"></i>সন্দেহজনক</span>`;
     }
 
     resultContainer.innerHTML = `
@@ -122,7 +132,7 @@ function displayResult(data) {
 function displayNotFound(query) {
     resultContainer.innerHTML = `
         <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 text-center">
-            <p class="text-slate-400 text-sm">"${query}" এর জন্য কোনো কলার ডাটা পাওয়া যায়নি।</p>
+            <p class="text-slate-400 text-sm">"${query}" এর জন্য কোনো ফলাফল পাওয়া যায়নি।</p>
         </div>
     `;
     resultContainer.classList.remove('hidden');
@@ -136,7 +146,7 @@ function renderSpamList() {
                 <p class="text-sm font-semibold text-rose-300">${item.name}</p>
                 <p class="text-xs text-slate-400">${item.number}</p>
             </div>
-            <span class="text-xs text-rose-400 bg-rose-500/10 px-2 py-1 rounded border border-rose-500/20">${item.reports} টি রিপোর্ট</span>
+            <span class="text-xs text-rose-400 bg-rose-500/10 px-2.5 py-1 rounded-full border border-rose-500/20">${item.reports} টি রিপোর্ট</span>
         </div>
     `).join('');
 }
@@ -151,7 +161,7 @@ function saveHistory(item) {
 function loadSearchHistory() {
     let history = JSON.parse(localStorage.getItem('truecaller_history') || '[]');
     if(history.length === 0) {
-        historyContent.innerHTML = `<p class="text-xs text-slate-500 text-center py-2">কোনো সাম্প্রতিক সার্চ ইতিহাস নেই</p>`;
+        historyContent.innerHTML = `<p class="text-xs text-slate-500 text-center py-2">কোনো সাম্প্রতিক অনুসন্ধান নেই</p>`;
         return;
     }
     historyContent.innerHTML = history.map(item => `
