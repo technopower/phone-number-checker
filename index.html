@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truecaller Web - Caller ID & Spam Lookup</title>
+    <title>Phone Number Checker - ট্রুকলার স্টাইল কলার আইডি</title>
+    <!-- Favicon / App Icon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231d4ed8'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15h.01M12 7v6' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/></svg>">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -14,78 +16,78 @@
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans flex flex-col justify-between">
 
-    <!-- Navbar -->
-    <header class="bg-slate-800/80 backdrop-blur border-b border-slate-700 sticky top-0 z-50">
+    <!-- Header / Navbar with New Logo -->
+    <header class="bg-slate-800/90 backdrop-blur border-b border-slate-700 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="bg-blue-600 text-white p-2.5 rounded-xl shadow-lg">
-                    <i class="fas fa-phone-volume text-xl"></i>
+            
+            <!-- SVG Logo & Brand Name -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="bg-blue-600 group-hover:bg-blue-500 text-white p-2.5 rounded-xl shadow-lg transition">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15h.01M12 7v6" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
                 </div>
                 <div>
-                    <h1 class="font-bold text-lg text-white leading-none">ট্রুকলার <span class="text-blue-400">ওয়েব</span></h1>
-                    <p class="text-[11px] text-slate-400">কলার আইডি ও স্প্যাম সনাক্তকরণ</p>
+                    <h1 class="font-bold text-lg text-white leading-none tracking-tight">
+                        Phone<span class="text-blue-400">.Number.</span>Checker
+                    </h1>
+                    <p class="text-[11px] text-slate-400 mt-0.5">স্মার্ট কলার আইডি ও স্প্যাম ফিল্টার</p>
                 </div>
-            </div>
+            </a>
             
             <div class="flex items-center space-x-3">
-                <button id="themeToggle" class="bg-slate-700 hover:bg-slate-600 text-slate-200 p-2 rounded-lg text-sm transition">
-                    <i class="fas fa-moon"></i>
-                </button>
+                <span class="hidden sm:inline-block bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-3 py-1 rounded-full font-medium">
+                    <i class="fas fa-signal text-[10px] mr-1"></i> অনলাইন
+                </span>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main Section -->
     <main class="max-w-4xl mx-auto px-4 py-8 w-full flex-1">
         
-        <!-- Search Section -->
-        <div class="bg-slate-800 rounded-2xl p-6 shadow-xl border border-slate-700 mb-8">
-            <h2 class="text-xl font-bold mb-4 text-center text-slate-100">যে কোনো ফোন নম্বর বা নাম দিয়ে সন্ধান করুন</h2>
+        <!-- Search Card -->
+        <div class="bg-slate-800 rounded-2xl p-6 shadow-2xl border border-slate-700 mb-8">
+            <h2 class="text-xl md:text-2xl font-bold mb-4 text-center text-slate-100">
+                যে কোনো ফোন নম্বর বা কলার নেম সার্চ করুন
+            </h2>
             
-            <form id="searchForm" class="flex flex-col md:flex-row gap-2">
+            <form id="searchForm" class="flex flex-col md:flex-row gap-3">
                 <div class="relative flex-1">
-                    <i class="fas fa-search absolute left-4 top-3.5 text-slate-400"></i>
-                    <input type="text" id="searchInput" placeholder="যেমন: +8801700000000 অথবা নাম..." 
-                           class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-blue-500 text-slate-100">
+                    <i class="fas fa-search absolute left-4 top-4 text-slate-400"></i>
+                    <input type="text" id="searchInput" placeholder="যেমন: +8801700000000 অথবা রাকিব..." 
+                           class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3.5 pl-11 pr-4 text-sm focus:outline-none focus:border-blue-500 text-slate-100 transition">
                 </div>
-                <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl text-sm transition">
-                    অনুসন্ধান করুন
+                <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition shadow-lg flex items-center justify-center space-x-2">
+                    <i class="fas fa-search"></i>
+                    <span>অনুসন্ধান</span>
                 </button>
             </form>
         </div>
 
-        <!-- Search Results View -->
-        <div id="resultContainer" class="hidden mb-8">
-            <!-- Dynamic Result Card JS injected here -->
-        </div>
+        <!-- Dynamic Search Results -->
+        <div id="resultContainer" class="hidden mb-8"></div>
 
-        <!-- Tabs Section (Recent & Top Spams) -->
+        <!-- History & Spam Tabs -->
         <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 shadow-xl">
             <div class="flex border-b border-slate-700 mb-4">
                 <button id="tabHistory" class="px-4 py-2 text-sm font-semibold text-blue-400 border-b-2 border-blue-500">
-                    <i class="fas fa-history mr-1.5"></i> সাম্প্রতিক অনুসন্ধানের তথ্য
+                    <i class="fas fa-history mr-1.5"></i> সাম্প্রতিক অনুসন্ধান
                 </button>
                 <button id="tabSpam" class="px-4 py-2 text-sm font-semibold text-slate-400 hover:text-slate-200">
-                    <i class="fas fa-shield-virus mr-1.5"></i> শীর্ষ স্প্যাম নম্বরসমূহ
+                    <i class="fas fa-shield-virus mr-1.5"></i> ফ্ল্যাগ করা স্প্যাম নম্বর
                 </button>
             </div>
 
-            <!-- Tab Content: History -->
-            <div id="historyContent" class="space-y-3">
-                <!-- JS dynamically injects history -->
-            </div>
-
-            <!-- Tab Content: Spam List -->
-            <div id="spamContent" class="hidden space-y-3">
-                <!-- JS dynamically injects spam list -->
-            </div>
+            <div id="historyContent" class="space-y-3"></div>
+            <div id="spamContent" class="hidden space-y-3"></div>
         </div>
 
     </main>
 
     <!-- Footer -->
     <footer class="bg-slate-950 border-t border-slate-800 py-4 text-center text-xs text-slate-500">
-        <p>© 2026 Truecaller Clone Project • Open Source HTML Application</p>
+        <p>© 2026 Phone Number Checker • Powered by Open Source JS</p>
     </footer>
 
     <script src="app.js"></script>
