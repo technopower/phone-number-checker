@@ -1,9 +1,8 @@
-/* Custom CSS Extensions */
 body {
     font-family: 'Hind Siliguri', sans-serif;
 }
 
-/* Custom scrollbar for better look */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
 }
